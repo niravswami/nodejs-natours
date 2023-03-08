@@ -20,7 +20,6 @@ const imgDestPath = 'public/img/users';
 const multerStorage = multer.memoryStorage();
 
 const multerFilter = (req, file, cb) => {
-  console.log('file', file);
   if (file.mimetype.startsWith('image')) {
     cb(null, true);
   } else {
@@ -36,7 +35,6 @@ const upload = multer({
 exports.uploadUserPhoto = upload.single('photo');
 
 exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
-  console.log('resizeUserPhoto', req.file);
   if (req.file) {
     req.file.filename = `user-${req.user.id}-${Date.now()}.jpeg`;
     await sharp(req.file.buffer)
@@ -64,7 +62,6 @@ exports.getMe = catchAsync(async (req, res, next) => {
 });
 
 exports.updateMe = catchAsync(async (req, res, next) => {
-  console.log(req.file, 'req body', req.body);
   const { password, confirmPassword } = req.body;
   // 1) throw error if user try ro update password here
   if (password || confirmPassword) {
@@ -75,8 +72,6 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   const filteredBody = filterObj(req.body, 'name', 'email');
 
   if (req.file) filteredBody.photo = req.file.filename;
-
-  console.log('filteredBody', filteredBody);
 
   const user = await User.findByIdAndUpdate(req.user.id, filteredBody, {
     new: true,

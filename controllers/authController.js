@@ -104,7 +104,7 @@ exports.isLoggedIn = catchAsync(async (req, res, next) => {
     if (!currentUser) {
       return next();
     }
-    //   console.log('currentUser', currentUser);
+
     // check if user changed password after the token was issued
     // here "iat" means issued at
     if (currentUser.changedPasswordAfter(decoded.iat)) {
@@ -152,7 +152,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   if (!currentUser) {
     next(new AppError('The user belonging to this token does not exist', 401));
   }
-  //   console.log('currentUser', currentUser);
+
   // 4) check if user changed password after the token was issued
   // here "iat" means issued at
   if (currentUser.changedPasswordAfter(decoded.iat)) {
@@ -170,7 +170,6 @@ exports.protect = catchAsync(async (req, res, next) => {
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {
     // roles ['admin, 'leadGuide]
-    console.log('req?.user?.role', req?.user?.role);
     if (!roles.includes(req?.user?.role)) {
       return next(
         new AppError(

@@ -21,7 +21,7 @@ export const updateUserData = async (data, type) => {
     }
     const res = await axios({
       method: 'PATCH',
-      url: `http://localhost:3000/api/v1/users/${uri}`,
+      url: `/api/v1/users/${uri}`,
       data: updateData,
       headers: {
         'content-Type': 'application/json',

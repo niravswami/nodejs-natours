@@ -3,8 +3,6 @@ import { login, logout } from './login';
 import { bookTour } from './stripe';
 import { updateUserData } from './updateSettings';
 
-console.log('parcel');
-
 // VALUES
 const loginForm = document.querySelector('.login-form');
 

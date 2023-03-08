@@ -25,7 +25,6 @@ exports.getOne = (Model, options) =>
     let query = Model.findById(req.params.id);
 
     if (options?.populateOptions) {
-      console.log('options', options);
       query.populate(options?.populateOptions);
     }
 

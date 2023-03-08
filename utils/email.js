@@ -11,29 +11,25 @@ module.exports = class Email {
   }
 
   newTransport() {
-    try {
-      // if (process.env.NODE_ENV.trim() === 'production') {
-      //   // sendgrid
-      //   return nodemailer.createTransport({
-      //     service: process.env.EMAIL_SENDGRID_SERVICE,
-      //     auth: {
-      //       user: process.env.EMAIL_SENDGRID_USERNAME,
-      //       pass: process.env.EMAIL_SENDGRID_PASSWORD,
-      //     },
-      //   });
-      // }
+    // if (process.env.NODE_ENV.trim() === 'production') {
+    //   // sendgrid
+    //   return nodemailer.createTransport({
+    //     service: process.env.EMAIL_SENDGRID_SERVICE,
+    //     auth: {
+    //       user: process.env.EMAIL_SENDGRID_USERNAME,
+    //       pass: process.env.EMAIL_SENDGRID_PASSWORD,
+    //     },
+    //   });
+    // }
 
-      return nodemailer.createTransport({
-        host: process.env.EMAIL_HOST,
-        port: process.env.EMAIL_PORT,
-        auth: {
-          user: process.env.EMAIL_USERNAME,
-          pass: process.env.EMAIL_PASSWORD,
-        },
-      });
-    } catch (error) {
-      console.log('main transport err', error);
-    }
+    return nodemailer.createTransport({
+      host: process.env.EMAIL_HOST,
+      port: process.env.EMAIL_PORT,
+      auth: {
+        user: process.env.EMAIL_USERNAME,
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    });
   }
 
   async send(template, subject) {
