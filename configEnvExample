@@ -1,0 +1,28 @@
+NODE_ENV=development
+PORT=3000
+
+MONGODB_LOCAL=mongodb://localhost:27017/natours
+MONGODB_ATLAS_DATABASE=
+MONGODB_ATLAS_USERNAME=
+MONGODB_ATLAS_PASSWORD=
+
+JWT_SECRET=the-best-and-secure-application-in-the-world # this should  be atleast 32 charter long
+JWT_EXPIRES_IN=90d # ex: 1d 10h 5m 3s 1000
+JWT_COOKIE_EXPIRES_IN=90 #
+
+# Mail Trap
+EMAIL_SERVICE='mailtrap'
+EMAIL_USERNAME=
+EMAIL_PASSWORD=
+EMAIL_HOST=sandbox.smtp.mailtrap.io
+EMAIL_PORT=2525
+EMAIL_FROM='Your name <your@email.com>'
+
+# Send Grid
+EMAIL_SENDGRID_SERVICE='SendGrid'
+EMAIL_SENDGRID_USERNAME=
+EMAIL_SENDGRID_PASSWORD=
+# EMAIL_SENDGRID_HOST=sandbox.smtp.mailtrap.io
+EMAIL_SENDGRID_PORT=
+
+STRIPE_SECRET_KEY=
